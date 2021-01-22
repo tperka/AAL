@@ -17,8 +17,12 @@ struct square
     square(int sides[6]);
 	square(const square& other_square);				// copy constructor
 	~square();
-    bool operator==(square other_square);
+    int* toArray() const;
+    
 };
+
+bool operator<(const square& square1, const square& square2);
+bool operator==(const square& square1,const square& other_square);
 
 struct HashSquare
 {

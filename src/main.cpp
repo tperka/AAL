@@ -42,7 +42,7 @@ void testTime(string resultFilename, int problemSize, int step, int nOfRepetitio
 	vector<int64_t> times;
 
 	data_source test_data;
-
+	int maxlen = isHard ? problemSize : problemSize / 4;
 
 	for (int i = 0; i < nOfTests; ++i, problemSize += step)
 	{
@@ -50,7 +50,7 @@ void testTime(string resultFilename, int problemSize, int step, int nOfRepetitio
 		for (int j = 0; j < nOfRepetitions; ++j)
 		{
 
-			test_data.generate(problemSize, problemSize, isHard);    //argument 2 ->  patyki d�ugo�ci od 1 do arg2 (w��cznie)
+			test_data.generate(problemSize, problemSize/4, isHard);    //argument 2 ->  patyki d�ugo�ci od 1 do arg2 (w��cznie)
 
 			auto start = chrono::high_resolution_clock::now();
 			//funkcja testowana
@@ -172,7 +172,7 @@ int main(int argc, char* argv[])
 	vector<square> results;
     vector<square> naiveResults;
 	results = find_squares(dane);
-    naiveResults = naive(dane);
+    
 	int n;
 	int x;
 	n = results.size();
@@ -186,6 +186,7 @@ int main(int argc, char* argv[])
 		x++;
 	}
     
+	naiveResults = naive(dane);
     n = naiveResults.size();
 	x = 0;
     cout << "Naive algorithm:" << endl;

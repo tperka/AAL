@@ -1,7 +1,7 @@
 #include "naive.hpp"
 
 #include <algorithm>
-
+#include <set>
 using namespace std;
 
 bool isSquare(int potentialSquare[6]) {
@@ -54,3 +54,15 @@ vector<square> naive(data_source data) {
             }
         }
     }
+    set<square>s(results.begin(), results.end());
+    results.assign(s.begin(), s.end());
+    // vector<square> temp;
+    // for(square i : s) {
+    //     temp.push_back(i);
+    // }
+    //sort(results.begin(), results.end());
+    //results.erase(unique(results.begin(), results.end(), results.end());
+    sort(results.rbegin(), results.rend());
+    return results;
+    
+}
